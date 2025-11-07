@@ -24,26 +24,26 @@ Há também uma área administrativa para gerenciar os cupcakes e acompanhar os 
 
 CUPCAKESTORE/
 │
-├── app.py               # Arquivo principal do Flask
-├── cupcakes.db          # Banco de dados SQLite
-├── requirements.txt     # Dependências do projeto
+├── app.py # Arquivo principal do Flask
+├── cupcakes.db # Banco de dados SQLite
+├── requirements.txt # Dependências do projeto
 ├── .gitignore
 │
-├── templates/           # Páginas HTML (Frontend)
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── sacola.html
-│   ├── venda.html
-│   ├── admin_list.html
-│   ├── admin_form.html
-│   └── ...
+├── templates/ # Páginas HTML (Frontend)
+│ ├── index.html
+│ ├── login.html
+│ ├── register.html
+│ ├── sacola.html
+│ ├── venda.html
+│ ├── admin_list.html
+│ ├── admin_form.html
+│ └── ...
 │
-├── static/              # Arquivos estáticos (CSS, imagens)
-│   └── css/
-│       └── style.css
+├── static/ # Arquivos estáticos (CSS, imagens)
+│ └── css/
+│ └── style.css
 │
-└── uploads/             # Imagens dos cupcakes
+└── uploads/ # Imagens dos cupcakes
 
 
 🗄️ Banco de Dados:
