@@ -1,4 +1,4 @@
-#🧁 CupcakeStore
+🧁 CupcakeStore
 
 Um sistema web desenvolvido em Python para gerenciar vendas de cupcakes.
 O projeto permite que usuários se cadastrem, façam login, visualizem produtos disponíveis e realizem pedidos.
@@ -22,30 +22,31 @@ Há também uma área administrativa para gerenciar os cupcakes e acompanhar os 
 
 🧩 Estrutura do Projeto:
 
+```text
 CUPCAKESTORE/
 │
-├── app.py # Arquivo principal do Flask
-├── cupcakes.db # Banco de dados SQLite
-├── requirements.txt # Dependências do projeto
+├── app.py               # Arquivo principal do Flask
+├── cupcakes.db          # Banco de dados SQLite
+├── requirements.txt     # Dependências do projeto
 ├── .gitignore
 │
-├── templates/ # Páginas HTML (Frontend)
-│ ├── index.html
-│ ├── login.html
-│ ├── register.html
-│ ├── sacola.html
-│ ├── venda.html
-│ ├── admin_list.html
-│ ├── admin_form.html
-│ └── ...
+├── templates/           # Páginas HTML (Frontend)
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── sacola.html
+│   ├── venda.html
+│   ├── admin_list.html
+│   ├── admin_form.html
+│   └── ...
 │
-├── static/ # Arquivos estáticos (CSS, imagens)
-│ └── css/
-│ └── style.css
+├── static/              # Arquivos estáticos (CSS, imagens)
+│   └── css/
+│       └── style.css
 │
-└── uploads/ # Imagens dos cupcakes
+└── uploads/             # Imagens dos cupcakes
 
-
+```
 🗄️ Banco de Dados:
 
 O sistema utiliza SQLite3 para armazenar informações.
@@ -66,6 +67,7 @@ O banco já está configurado e é criado automaticamente ao rodar o projeto pel
 
 Clone este repositório: 
 git clone https://github.com/nicsantana06/CupcakeStore.git
+
 cd CupcakeStore
 
 
