@@ -1,4 +1,4 @@
-🧁 CupcakeStore
+#🧁 CupcakeStore
 
 Um sistema web desenvolvido em Python para gerenciar vendas de cupcakes.
 O projeto permite que usuários se cadastrem, façam login, visualizem produtos disponíveis e realizem pedidos.
