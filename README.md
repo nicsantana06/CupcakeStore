@@ -72,19 +72,24 @@ cd CupcakeStore
 
 
 Crie e ative o ambiente virtual: 
+
 python -m venv venv
-venv\Scripts\activate  # No Windows
+
+venv\Scripts\activate  (No Windows)
 
 
 Instale as dependências: 
+
 pip install -r requirements.txt
 
 
 Execute o servidor: 
+
 python app.py
 
 
 Acesse no navegador: 
+
 http://localhost:5000
 
 
