@@ -6,6 +6,7 @@ Há também uma área administrativa para gerenciar os cupcakes e acompanhar os 
 
 
 🚀 Funcionalidades principais:
+
 🧍‍♂️ Cadastro e login de usuários
 
 🛒 Sistema de sacola (adicionar e remover cupcakes)
@@ -19,7 +20,8 @@ Há também uma área administrativa para gerenciar os cupcakes e acompanhar os 
 🔐 Área administrativa para cadastro e controle de cupcakes
 
 
-🧩 Estrutura do Projeto
+🧩 Estrutura do Projeto:
+
 CUPCAKESTORE/
 │
 ├── app.py               # Arquivo principal do Flask
@@ -44,9 +46,12 @@ CUPCAKESTORE/
 └── uploads/             # Imagens dos cupcakes
 
 
-🗄️ Banco de Dados
+🗄️ Banco de Dados:
+
 O sistema utiliza SQLite3 para armazenar informações.
+
 As principais tabelas incluem:
+
 user → guarda nome, e-mail e senha dos usuários.
 
 cupcakes → armazena nome, sabor, preço e imagem de cada cupcake.
@@ -58,30 +63,33 @@ O banco já está configurado e é criado automaticamente ao rodar o projeto pel
 💡 checar_db.py é um script auxiliar usado apenas para verificar se o banco de dados contém registros de cupcakes. Não é necessário para executar o sistema.
 
 ⚙️ Como executar o projeto
-Clone este repositório:
+
+Clone este repositório: 
 git clone https://github.com/nicsantana06/CupcakeStore.git
 cd CupcakeStore
 
 
-Crie e ative o ambiente virtual:
+Crie e ative o ambiente virtual: 
 python -m venv venv
 venv\Scripts\activate  # No Windows
 
 
-Instale as dependências:
+Instale as dependências: 
 pip install -r requirements.txt
 
 
-Execute o servidor:
+Execute o servidor: 
 python app.py
 
 
-Acesse no navegador:
+Acesse no navegador: 
 http://localhost:5000
 
 
-🧠 Padrão de Arquitetura (MVC)
-O projeto segue uma estrutura simplificada do padrão MVC:
+🧠 Padrão de Arquitetura (MVC): 
+
+O projeto segue uma estrutura simplificada do padrão MVC 
+
 Model: cupcakes.db (banco de dados)
 
 View: arquivos HTML na pasta templates
@@ -89,7 +97,8 @@ View: arquivos HTML na pasta templates
 Controller: app.py (responsável por gerenciar rotas e lógica de negócio)
 
 
-💡 Observação
+💡 Observação: 
+
 O usuário pode criar seu próprio login diretamente na página de cadastro.
 
 Após logar, poderá acessar a tela de vendas e visualizar todos os cupcakes disponíveis.
@@ -97,7 +106,8 @@ Após logar, poderá acessar a tela de vendas e visualizar todos os cupcakes dis
 Não é necessário configurar o banco manualmente.
 
 
-🧑‍💻 Tecnologias utilizadas
+🧑‍💻 Tecnologias utilizadas: 
+
 Python 3.x
 
 Flask
@@ -109,7 +119,7 @@ HTML / CSS
 Jinja2 Templates
 
 
-📷 Exemplo de interface
+📷 Exemplo de interface: 
 ![Tela de cadastro de Usuário](image-2.png)
 
 ![Tela de login](image-3.png)
@@ -129,6 +139,6 @@ Jinja2 Templates
 ![Tela de cadastro de cupcake](image-10.png)
 
 
-🏷️ Autor
+🏷️ Autor: 
 Nicolas Sant’Ana Rodrigues
 📧 github.com/nicsantana06
