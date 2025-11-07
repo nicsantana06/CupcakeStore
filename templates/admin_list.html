@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin - Cupcakes</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body>
+  {% include 'base_header.html' %}
+  <div class="container">
+    <h1>Painel Admin — Cupcakes</h1>
+    <a class="botao" href="{{ url_for('admin_new') }}">+ Novo Cupcake</a>
+    <div class="cards-container" style="margin-top:20px;">
+      {% for c in cupcakes %}
+        <div class="card">
+          <h2>{{ c.sabor }}</h2>
+          <p>{{ c.descricao }}</p>
+          <p class="preco">R$ {{ "%.2f"|format(c.preco) }}</p>
+          <a class="botao" href="{{ url_for('admin_edit', id=c.id) }}">Editar</a>
+          <form action="{{ url_for('admin_delete', id=c.id) }}" method="post" style="display:inline;">
+            <button class="botao" type="submit" style="background:#e53935">Excluir</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

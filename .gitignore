@@ -1,0 +1,21 @@
+# Ignorar ambiente virtual
+venv/
+
+# Ignorar cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar banco temporário local e backups
+instance/
+*.sqlite3
+*.db-journal
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar estrutura gerada automaticamente
+estrutura.txt
+
+# Ignorar variáveis de ambiente
+.env

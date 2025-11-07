@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if cupcake %}Editar{% else %}Cadastrar{% endif %} Cupcake</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .card-form {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .card-form h1 {
+            text-align: center;
+            color: #e91e63;
+            margin-bottom: 25px;
+        }
+
+        .card-form label {
+            display: block;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 6px;
+        }
+
+        .card-form input[type="text"],
+        .card-form input[type="number"],
+        .card-form textarea,
+        .card-form input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .card-form textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .card-form button {
+            width: 100%;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .card-form button:hover {
+            background-color: #c2185b;
+        }
+
+        .card-form .botao-voltar {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-form .botao-voltar:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-form">
+        <h1>{% if cupcake %}Editar{% else %}Cadastrar{% endif %} Cupcake</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="sabor">Nome do Cupcake:</label>
+            <input type="text" name="sabor" id="sabor" value="{{ cupcake.sabor if cupcake else '' }}" required>
+
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descricao" placeholder="Descrição breve">{{ cupcake.descricao if cupcake else '' }}</textarea>
+
+            <label for="detalhes">Detalhes:</label>
+            <textarea name="detalhes" id="detalhes" placeholder="Ex: Massa de baunilha com recheio de morango">{{ cupcake.detalhes if cupcake else '' }}</textarea>
+
+            <label for="preco">Preço (R$):</label>
+            <input type="number" name="preco" id="preco" step="0.01" value="{{ cupcake.preco if cupcake else '' }}" required>
+
+            <label for="imagem">Imagem do Cupcake:</label>
+            <input type="file" name="imagem" id="imagem">
+
+            <button type="submit">{% if cupcake %}Salvar Alterações{% else %}Cadastrar{% endif %}</button>
+        </form>
+        <a class="botao-voltar" href="{{ url_for('admin_list') }}">← Voltar para Lista</a>
+    </div>
+</body>
+</html>

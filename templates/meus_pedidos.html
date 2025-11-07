@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - Cupcake Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .pedidos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pedido-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            background-color: #fff3f3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pedido-card h3 {
+            margin-top: 0;
+            color: #d6336c;
+        }
+
+        .pedido-card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .pedido-card ul li {
+            margin-bottom: 5px;
+        }
+
+        .voltar-botao {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'base_header.html' %}
+
+    <div class="container">
+        <h2>🧾 Meus Pedidos Anteriores</h2>
+        {% if pedidos %}
+            <div class="pedidos-container">
+                {% for pedido in pedidos %}
+                    <div class="pedido-card">
+                        <h3>Pedido #{{ pedido.pedido_numero }}</h3>
+                        <p><strong>Data:</strong> {{ pedido.created_at.strftime('%d/%m/%Y %H:%M') }}</p>
+                        <p><strong>Total:</strong> R$ {{ '%.2f'|format(pedido.total) }}</p>
+                        
+                        <div class="itens-pedido">
+                            <h4>Itens:</h4>
+                            <ul>
+                                {% for item in pedido.itens %}
+                                    <li>{{ item.quantidade }} x {{ item.cupcake.sabor }} - R$ {{ '%.2f'|format(item.preco_unit) }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Você ainda não realizou nenhum pedido.</p>
+        {% endif %}
+
+        <a href="{{ url_for('venda') }}" class="botao voltar-botao">🛍️ Voltar à Vitrine</a>
+    </div>
+</body>
+</html>

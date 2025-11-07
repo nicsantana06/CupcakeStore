@@ -1,0 +1,7 @@
+{% if session.get('user_id') %}
+    <a href="{{ url_for('meus_pedidos') }}">Meus Pedidos</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Cadastrar</a>
+{% endif %}

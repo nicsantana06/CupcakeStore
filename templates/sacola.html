@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacola - Cupcake Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'base_header.html' %}
+
+    <div class="form-container">
+        <h2>🛍️ Sua Sacola</h2>
+        <p class="center">Olá, {{ nome }}!</p>
+
+        {% if sacola %}
+            <table class="tabela-sacola">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sacola %}
+                    <tr>
+                        <td>{{ item.sabor }}</td>
+                        <td>R$ {{ '%.2f'|format(item.preco) }}</td>
+                        <td>
+                            <a href="{{ url_for('cart_remove', cupcake_id=item.id) }}" class="botao delete">❌ Remover</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td colspan="2"><strong>R$ {{ '%.2f'|format(total) }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="sacola-botoes" style="margin-top: 20px;">
+                <a href="{{ url_for('venda') }}" class="botao" style="margin-right: 10px;">⬅️ Continuar Comprando</a>
+                <a href="{{ url_for('finalizar') }}" class="botao finalizar">✅ Finalizar Pedido</a>
+            </div>
+
+        {% else %}
+            <p class="center">Sua sacola está vazia 😔</p>
+            <a href="{{ url_for('venda') }}" class="botao">Voltar à Loja</a>
+        {% endif %}
+    </div>
+</body>
+</html>

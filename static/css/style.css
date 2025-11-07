@@ -1,0 +1,410 @@
+/* ======================= Reset básico ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff0f6;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ======================= Header ======================= */
+header {
+    background-color: #e91e63;
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+header nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.usuario-nome {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+/* ======================= Containers principais ======================= */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+/* ======================= Cards Loja/Admin ======================= */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 220px;
+}
+
+.card img {
+    border-radius: 12px;
+    margin-bottom: 10px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.card h2 {
+    color: #e91e63;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px 0;
+    background-color: #e91e63;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.botao:hover {
+    background-color: #c2185b;
+}
+
+/* ======================= Formulários (login, registro, novo cupcake) ======================= */
+.form-container {
+    background-color: #fff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #444;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.form-container button {
+    width: 100%;
+    background-color: #e91e63;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #c2185b;
+}
+
+/* ======================= Flash messages ======================= */
+.flash-messages {
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.flash-messages li {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.flash-messages li.error {
+    background-color: #ffcccc;
+    color: #900;
+}
+
+.flash-messages li.success {
+    background-color: #ccffcc;
+    color: #090;
+}
+
+/* ======================= Tabelas (sacola) ======================= */
+.tabela-sacola {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabela-sacola th,
+.tabela-sacola td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela-sacola th {
+    background-color: #f8bbd0;
+    color: #fff;
+}
+
+.botao.finalizar {
+    background-color: #4caf50;
+}
+
+.botao.finalizar:hover {
+    background-color: #388e3c;
+}
+
+/* ======================= Páginas de confirmação ======================= */
+.confirmacao {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.confirmacao h1 {
+    color: #2e7d32;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.confirmacao p {
+    font-size: 1.2em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.botao-voltar {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.botao-voltar:hover {
+    background-color: #2e7d32;
+}
+
+/* ======================= Links padrão ======================= */
+a.botao {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #e91e63;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+p.center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ======================= VENDAS: cards exclusivos ======================= */
+.venda-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.cupcake-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: calc(20% - 16px);
+    /* 5 cards por linha */
+    min-width: 180px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.cupcake-card:hover {
+    transform: translateY(-5px);
+}
+
+.cupcake-card img {
+    width: 100%;
+    aspect-ratio: 4 / 6;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* Responsividade tela de venda */
+@media (max-width: 1400px) {
+    .cupcake-card {
+        width: calc(25% - 16px);
+    }
+}
+
+/* 4 cards */
+@media (max-width: 1200px) {
+    .cupcake-card {
+        width: calc(33.33% - 16px);
+    }
+}
+
+/* 3 cards */
+@media (max-width: 768px) {
+    .cupcake-card {
+        width: calc(50% - 16px);
+    }
+}
+
+/* 2 cards */
+@media (max-width: 480px) {
+    .cupcake-card {
+        width: 100%;
+    }
+}
+
+/* 1 card */
+
+/* ======================= Meus Pedidos ======================= */
+.pedidos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* centraliza os cards */
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.pedido-card {
+    flex: 1 1 250px; /* cresce, encolhe, largura mínima */
+    max-width: 300px; /* largura máxima do card */
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #fff3f3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pedido-card h3 {
+    margin-top: 0;
+    color: #d6336c;
+    margin-bottom: 10px;
+}
+
+.pedido-card p {
+    margin: 5px 0;
+}
+
+.pedido-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+}
+
+.pedido-card ul li {
+    margin-bottom: 5px;
+}
+
+.voltar-botao {
+    display: inline-block;
+    margin-top: 15px;
+}
+/* ======================= Filtro de pesquisa e ordenação ======================= */
+.filtro-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro-form input,
+.filtro-form select,
+.filtro-form button {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.filtro-form button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filtro-form button:hover {
+    background-color: #c2185b;
+}

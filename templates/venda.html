@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Cupcakes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'base_header.html' %}
+
+    <div class="container">
+        <h2>🧁 Bem-vindo à Cupcake Store!</h2>
+        <p class="center">Olá, <strong>{{ nome }}</strong>!</p>
+
+        <!-- Formulário de busca e ordenação -->
+        <div class="filtro-form">
+            <input type="text" id="busca" placeholder="Pesquisar sabor..." aria-label="Pesquisar sabor">
+            <select id="ordenar" aria-label="Ordenar cupcakes">
+                <option value="">Ordenar por preço</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+            </select>
+        </div>
+
+        <div class="venda-cards" id="venda-cards">
+            {% for cupcake in cupcakes %}
+                <div class="cupcake-card">
+                    {% if cupcake.imagem %}
+                        <img src="{{ url_for('static', filename='uploads/' + cupcake.imagem) }}" 
+                             alt="Imagem do cupcake {{ cupcake.sabor }}">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='uploads/default.png') }}" 
+                             alt="Imagem padrão do cupcake">
+                    {% endif %}
+                    <h2>{{ cupcake.sabor }}</h2>
+                    <p>{{ cupcake.descricao }}</p>
+                    <p><strong>R$ {{ cupcake.preco }}</strong></p>
+                    <a href="{{ url_for('cart_add', cupcake_id=cupcake.id) }}" class="botao">Adicionar à Sacola</a>
+                    <a href="{{ url_for('cupcake_details', id=cupcake.id) }}" class="botao">Detalhes</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="{{ url_for('sacola') }}" class="botao">🛍️ Ver Sacola</a>
+    </div>
+
+    {% if session.get('user_id') %}
+        <div style="position: fixed; bottom: 20px; right: 20px;">
+            <a href="{{ url_for('meus_pedidos') }}" 
+               style="padding: 10px 15px; background-color: #28a745; color: white; border-radius: 5px; text-decoration: none;">
+               Meus Pedidos Anteriores
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- JS para busca e ordenação dinâmicas -->
+    <script>
+        const buscaInput = document.getElementById('busca');
+        const ordenarSelect = document.getElementById('ordenar');
+        const cardsContainer = document.getElementById('venda-cards');
+
+        async function atualizarCards() {
+            const busca = buscaInput.value;
+            const ordenar = ordenarSelect.value;
+            const response = await fetch(`/api/cupcakes?busca=${encodeURIComponent(busca)}&ordenar=${ordenar}`);
+            const cupcakes = await response.json();
+
+            // Limpa os cards
+            cardsContainer.innerHTML = '';
+
+            // Renderiza os cupcakes filtrados
+            cupcakes.forEach(cupcake => {
+                const card = document.createElement('div');
+                card.classList.add('cupcake-card');
+
+                card.innerHTML = `
+                    <img src="${cupcake.imagem}" alt="Imagem do cupcake ${cupcake.sabor}">
+                    <h2>${cupcake.sabor}</h2>
+                    <p>${cupcake.descricao}</p>
+                    <p><strong>R$ ${cupcake.preco}</strong></p>
+                    <a href="/cart/add/${cupcake.id}" class="botao">Adicionar à Sacola</a>
+                    <a href="/cupcake/${cupcake.id}" class="botao">Detalhes</a>
+                `;
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        buscaInput.addEventListener('input', atualizarCards);
+        ordenarSelect.addEventListener('change', atualizarCards);
+    </script>
+</body>
+</html>

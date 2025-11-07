@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Cupcake</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Centraliza o container da página */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff0f6;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        .detalhes-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .detalhes-card img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .detalhes-card h2 {
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        .detalhes-card p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .detalhes-card a.botao {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="detalhes-card">
+        <h2>{{ cupcake.sabor }}</h2>
+        <img src="{{ url_for('static', filename='uploads/' + cupcake.imagem) }}" 
+             alt="Imagem do cupcake {{ cupcake.sabor }}">
+        <p>{{ cupcake.descricao }}</p>
+        <p>{{ cupcake.detalhes }}</p>
+        <p><strong>Preço:</strong> R$ {{ cupcake.preco }}</p>
+        <a href="{{ url_for('venda') }}" class="botao">Voltar à Loja</a>
+    </div>
+</body>
+</html>
+

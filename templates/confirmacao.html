@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Finalizada - Cupcake Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .confirmacao {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .confirmacao h1 {
+            color: #2e7d32;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .confirmacao p {
+            font-size: 1.2em;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .botao-voltar {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .botao-voltar:hover {
+            background-color: #2e7d32;
+        }
+    </style>
+</head>
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Confirmado</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body>
+ {% include 'base_header.html' %}
+ <div class="container" style="text-align:center">
+   <h1>✅ Pedido Confirmado!</h1>
+   <p>Pedido nº: <strong>{{ pedido_numero }}</strong></p>
+   <p>Seu pedido estará pronto em 30 minutos.</p>
+   <p>Efetuar pagamento no ato da retirada!</p>
+   <p>Aceitamos apenas cartão de débito, dinheiro, PIX e TED.</p>
+   <p>📍 Apenas retirada na Rua Tsugye Imanisse nº80, Arujá - SP</p>
+   <a class="botao" href="{{ url_for('venda') }}">Voltar à loja</a>
+ </div>
+</body>
+</html>
